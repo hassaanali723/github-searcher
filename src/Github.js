@@ -3,7 +3,7 @@ import Profile from './Components/Profile';
 import Searcher from './Components/Searcher';
 
 
-const API = 'https://api.github.com/users/';
+const API = 'https://api.github.com/users';
 
 class Github extends Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class Github extends Component {
             followers: '',
             following: '',
             homeURL: '',
+            location: '',
             notFound: ''
          }
     }
@@ -26,13 +27,14 @@ class Github extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({ 
-            username: data.username,
+            username: data.login,
             name: data.name,
             avatar: data.avatar_url,
             repos: data.public_repos,
             followers: data.followers,
             following: data.following,
             homeURL: data.html_url,
+            location: data.location,
             notFound: data.message
          })
     })
@@ -48,7 +50,7 @@ class Github extends Component {
         <div>
                <section id="card">
                  <Searcher searchProfile={this.getProfile.bind(this)} />
-                 <Profile userDate={this.state} />
+                 <Profile userData={this.state} />
                </section>
         </div> );
     }

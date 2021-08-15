@@ -5,6 +5,7 @@ class Searcher extends Component {
     onSubmit(event){
         event.preventDefault();
         let value = this.refs.username.value;
+        console.log(value);
         this.props.searchProfile(value);
         this.refs.username.value = '';
         
@@ -19,7 +20,7 @@ class Searcher extends Component {
         return ( 
             <div onSubmit={this.onSubmit.bind(this)}>
                 <form className="search-box">
-                    <lable><input type="search" ref="username" placeholder="type username and hit enter"/></lable>
+                    <input type="search" ref="username" placeholder="Type username and hit enter"/>
                 </form>
             </div>
          );
