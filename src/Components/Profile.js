@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 class Profile extends Component {
     constructor(props) {
@@ -8,15 +9,14 @@ class Profile extends Component {
     render() { 
 
         let userdata = this.props.userData;
-        let following = `${userdata.homeURL}/following`;
-        let followers = `${userdata.homeURL}/followers`;
-        let repos = `${userdata.homeURL}/repositories`;
+        let following = `${userdata.homeURL}?tab=following`;
+        let followers = `${userdata.homeURL}?tab=followers`;
+        let repos = `${userdata.homeURL}?tab=repositories`;
 
         
         if (userdata.notFound === 'Not Found'){
             return(
-                <div>
-                   { console.log(userdata)}
+                <div className="notFound">
                     <h2>Hey</h2>
                     <p>Username Not Found</p>
                 </div>

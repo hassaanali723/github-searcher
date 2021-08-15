@@ -81,7 +81,11 @@ class App extends Component {
     if(this.state.idToken){
       gitty =  <Github />
     }else{
-      gitty = 'Click on Login to view the github Searcher';
+      gitty = <div className="main">
+      
+      <h2>Click on Login to view the github Searcher</h2> 
+
+      </div>
     }
 
     return ( 

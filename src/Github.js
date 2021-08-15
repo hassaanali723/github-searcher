@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Profile from './Components/Profile';
 import Searcher from './Components/Searcher';
+import './App.css';
 
 
 const API = 'https://api.github.com/users';
@@ -47,8 +48,9 @@ class Github extends Component {
 
     render() { 
         return ( 
-        <div>
+        <div className="main">
                <section id="card">
+               <h2>Welcome to GitHub Searcher</h2>
                  <Searcher searchProfile={this.getProfile.bind(this)} />
                  <Profile userData={this.state} />
                </section>
